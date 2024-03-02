@@ -1,0 +1,46 @@
+<!-- Top navbar starts from here  -->
+<mat-toolbar class="header">
+  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="navbar-content">
+    <h1 class="logo-text ">Tube Tech Scaffolding</h1>
+   
+ 
+    <p-menu #menu [model]="userMenu"  [popup]="true"></p-menu>
+    <i class="pi pi-user user-style" style="font-size: 2rem" (click)="menu.toggle($event)"></i>
+
+    <!-- <button pButton type="button"  icon="pi pi-bars" label="Show"></button> -->
+  </div>
+
+</mat-toolbar>
+
+<!-- Side nav starts from here  -->
+<mat-sidenav-container autosize="true">
+  <mat-sidenav [ngClass]="!isMenuCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'"
+      class="custom-sidenav">
+      <!-- Iterating all nav items through loop -->
+      <mat-nav-list>
+          <div class="all-items-list">
+              <ng-container *ngFor="let item of navItems">
+                <div class="entry" [routerLink]="item.routerLink">
+                  <ng-container *ngIf="item.name === 'Quotations'; else elseBlock">
+                      <i class="fab fa-discourse"></i>
+                  </ng-container>
+                  <ng-template #elseBlock>
+                      <fa-icon size="sm" [icon]="item.icon"></fa-icon>
+                  </ng-template>
+                  <span *ngIf="!isMenuCollapsed">{{ item.name }}</span>
+              </div>
+              </ng-container>
+            </div>
+      </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Content section of each nav item starts from here -->
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

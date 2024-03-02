@@ -1,0 +1,87 @@
+
+<div class="card table-container">
+    <p-toast [baseZIndex]="999" ></p-toast>
+    <!-- PrimeNG DataTable Component -->
+    <p-table #dt1 [columns]="cols" [value]="filteredActiveJobs" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped" >
+
+        <!-- Caption Template -->
+        <ng-template pTemplate="caption">
+            <!-- Action Buttons -->
+            <div class="flex action-buttons">
+                <div class="left">
+                    <!-- Filter Button -->
+                    <button pButton label="Filter" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilter()"></button>
+                    <span class="p-input-icon-left ml-auto">
+                        <!-- Search Input -->
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text"  [(ngModel)]="searchText" placeholder="Search keyword" (input)="onSearch()"    />
+                    </span>
+                </div>
+
+                <div class="right">
+                    <!-- Add Job Button -->
+                    <button *ngIf="!isAnyRowSelected" pButton label="Add Job" class="p-button-outlined" icon="pi pi-plus" (click)="addNewJob()"></button>
+                   
+                    <!-- Edit Mode Buttons -->
+                    <div class="edit-mode" *ngIf="isAnyRowSelected">
+                        <span class="edit-pencil" (click)="editJob()"> <i class="pi pi-pencil"> </i></span>
+     
+                        <img src="../../../assets/icons/delete.svg" width="30" height="30" (click)="deleteJob()" />
+                        <img src="../../../assets/icons/archive.svg" width="30" height="30" (click)="archiveJob()" />
+                        
+ 
+                    
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- Header Template -->
+        <ng-template pTemplate="header" let-columns>
+            <!-- Header Row -->
+            <tr>
+                <!-- Checkbox Column -->
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <!-- Display Column Headers -->
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
+            </tr>
+        </ng-template>
+
+        <!-- Body Template -->
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <!-- Data Row -->
+            <tr>
+                <!-- Checkbox for Data Row -->
+                <td>
+ 
+                    <p-checkbox (onChange)="selectRow($event)" [(ngModel)]="checked"  [value]="rowData" ></p-checkbox>
+
+                </td>
+                <!-- Display Data for Each Column -->
+                <td *ngFor="let col of columns">
+                    <!-- Display tags for 'status' column -->
+                    <ng-container *ngIf="col.field === 'status'">
+                        <td><p-tag [value]="rowData[col.field]" [severity]="getSeverity(rowData[col.field])"></p-tag></td>
+                    </ng-container>
+
+                    <!-- Display check or cross icons for 'handoverSigned' and 'invoiced' columns -->
+                    <ng-container *ngIf="col.field === 'handoverSigned' || col.field === 'invoiced'">
+                        <td>
+                            <i class="pi" style="font-size: 1.5rem" [ngClass]="{ 'text-green-500 pi-check-circle': rowData[col.field], 'text-red-500 pi-times-circle': !rowData[col.field] }"></i>
+                        </td>
+                    </ng-container>
+
+                    <!-- Display data for other columns -->
+                    <ng-container *ngIf="col.field !== 'status' && col.field !== 'handoverSigned' && col.field !== 'invoiced'">
+                        {{ rowData[col.field] }}
+                    </ng-container>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

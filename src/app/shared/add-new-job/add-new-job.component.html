@@ -1,0 +1,185 @@
+<div class="container">
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="p-fluid">
+        <div class="form" >
+          <div class="left">
+            <div class="p-col-12 p-md-6">
+                <label for="client">Client</label>
+                <input
+                  id="client"
+                  type="text"
+                  pInputText
+                  formControlName="client"
+                  class="p-inputtext"
+                />
+              </div>
+          
+              <div class="p-col-12 p-md-6">
+                <label for="contact">Contact</label>
+                <input
+                  id="contact"
+                  type="text"
+                  pInputText
+                  formControlName="contact"
+                  class="p-inputtext"
+                />
+              </div>
+          
+              <div class="p-col-12 p-md-6">
+                <label for="invoiceTo">Invoice To</label>
+                <input
+                  id="invoiceTo"
+                  type="text"
+                  pInputText
+                  formControlName="invoiceTo"
+                  class="p-inputtext"
+                />
+              </div>
+
+
+
+
+              <div class="p-col-12 p-md-6">
+                <label for="site">Site</label>
+                <input
+                  id="site"
+                  type="text"
+                  pInputText
+                  formControlName="site"
+                  class="p-inputtext"
+                />
+              </div>
+          
+            
+          
+              <div class="p-col-12 p-md-6">
+                <label for="tenderPrice">Tender Price</label>
+                <input
+                  id="tenderPrice"
+                  type="number"
+                  pInputText
+                  formControlName="tenderPrice"
+                  class="p-inputtext"
+                />
+              </div>
+
+
+              <div class="p-col-12 p-md-6">
+                <label for="dateUp">Date Up</label>
+                <p-calendar id="dateUp" formControlName="dateUp"></p-calendar>
+              </div>
+          
+          
+           
+            </div>
+          
+        <div class="right">
+
+            <div class="p-col-12 p-md-6">
+                <label for="overHireAmount">Over Hire Amount</label>
+                <input
+                  id="overHireAmount"
+                  type="number"
+                  pInputText
+                  formControlName="overHireAmount"
+                  class="p-inputtext"
+                />
+              </div>
+
+          <div class="p-col-12 p-md-6">
+            <label for="weeklyHirePeriod">Weekly Hire Period</label>
+            <input
+              id="weeklyHirePeriod"
+              type="number"
+              pInputNumber
+              formControlName="weeklyHirePeriod"
+              class="p-inputtext"
+            />
+          </div>
+      
+          <div class="p-col-12 p-md-6">
+            <label for="endDate">End Date</label>
+            <p-calendar id="endDate" formControlName="endDate"></p-calendar>
+          </div>
+      
+   
+      
+          <div class="p-col-12 p-md-6">
+            <label for="overHireInvoicedTo">Over Hire Invoiced To</label>
+            <input
+              id="overHireInvoicedTo"
+              type="text"
+              pInputText
+              formControlName="overHireInvoicedTo"
+              class="p-inputtext"
+            />
+          </div>
+      
+          <div class="p-col-12 p-md-6">
+            <label for="status">Status</label>
+            <!-- <input
+              id="status"
+              type="text"
+              pInputText
+              formControlName="status"
+              class="p-inputtext"
+            /> -->
+
+          
+            <p-dropdown formControlName="status" [options]="status" optionLabel="name" placeholder="Select Job Status"></p-dropdown>
+          </div>
+      
+          <div class="p-col-12 p-md-6">
+            <div class="p-field-checkbox">
+              <label style="width: 7vw;" for="handoverSigned">Handover Signed</label>
+              <p-checkbox
+                id="handoverSigned"
+                formControlName="handoverSigned"
+                class="checkbox-margin"
+                value="handoverSigned"
+              ></p-checkbox>
+            </div>
+          </div>
+
+          <div class="p-col-12 p-md-6">
+            <div class="p-field-checkbox">
+              <label style="width: 7.1vw;" for="invoiced">Invoiced</label>
+              <p-checkbox id="invoiced" formControlName="invoiced" value="invoiced"  class="checkbox-margin"></p-checkbox>
+            </div>
+          </div>
+
+          <!-- <div class="p-col-12">
+            <button type="submit" pButton label="Submit"></button>
+          </div> -->
+      
+        </div>
+
+        <div class="notes-and-footer-btns">
+          <div class="notes-box">
+            <textarea  formControlName="notes" placeholder="Type your notes here..."></textarea>
+          </div>
+  
+  
+          <div class="footer">
+            <button pButton pRipple label="Cancel" class="p-button-danger custom-btn-cancel" (click)="ref.close()"></button>
+            <button pButton pRipple type="submit" label="Submit" class="p-button-success custom-btn-submit"></button>
+           </div>
+        </div>
+
+     
+
+
+        </div>
+
+       
+      </form>
+
+      <!-- <div class="footer">
+            <button pButton pRipple label="Cancel" class="p-button-danger custom-btn-cancel" (click)="ref.close()"></button>
+            <button pButton pRipple type="submit" label="Submit" class="p-button-success custom-btn-submit"></button>
+      </div> -->
+    
+      <!-- <p-dropdown [(ngModel)]="selectedCity" [options]="cities" optionLabel="name" placeholder="Select a City"></p-dropdown> -->
+
+</div>
+ 

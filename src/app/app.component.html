@@ -1,0 +1,8 @@
+<ng-container *ngIf="isAuthenticated ; else loginPage" >
+    <app-sidenav></app-sidenav>
+</ng-container>
+
+
+<ng-template #loginPage>
+       <app-login></app-login>
+</ng-template>

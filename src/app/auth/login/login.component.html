@@ -1,0 +1,45 @@
+<div class="container card flex justify-content-center">
+    <div>
+        <img   src="../../../assets/icons/logo-dark.svg" width="100" height="100" />
+    </div>
+    <p-card class="card" >
+        <div class="header">
+          <div class="welcome">Welcome, To Gary!</div> 
+          <span class="signin-text">Sign in to continue</span>
+        </div>
+        <div class="p-card-body  m-0">
+
+            <div class="body">
+                <div class="flex flex-column gap-2">
+                    <label for="username">Email</label>
+                    <br>
+                    <input class="email-input" pInputText placeholder="Email address" id="username" aria-describedby="username-help" [(ngModel)]="email" />
+                </div>
+    
+                <div class="password">
+                    <label for="password">Password</label>
+                    <p-password class="password-input " placeholder="Password" [(ngModel)]="password" [toggleMask]="true"></p-password>     
+                </div>
+
+                <div class="remember-fogot">
+
+                    <div class="flex align-items-center">
+                        <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                        <label for="rememberme1" class="text">Remember me</label>
+                    </div>
+
+                    <a class="" style="color: var(--primary-color)">Forgot password?</a>
+                </div>
+
+                <button pButton pRipple label="Sign In" class="sign-in-btn" [routerLink]="['/']" (click)="login()"></button>
+  
+            </div>
+        
+
+            
+        </div>
+    </p-card>
+
+</div>
+
+
