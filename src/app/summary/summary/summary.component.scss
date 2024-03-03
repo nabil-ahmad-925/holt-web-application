@@ -1,0 +1,34 @@
+
+:host ::ng-deep {
+    .p-progressbar {
+        height: .5rem;
+        background-color: #D8DADC;
+    
+        .p-progressbar-value {
+            background-color: #607D8B;
+        }
+    }
+}
+ 
+ 
+
+
+.container{
+  padding: 50px;
+
+  .search-and-clear{
+    display: flex;
+ 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-elipses{
+ 
+        width: 5vw; /* Set the maximum width */
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflowed text */
+        text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+ 
+}
+}

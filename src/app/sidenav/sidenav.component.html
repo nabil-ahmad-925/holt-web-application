@@ -5,9 +5,9 @@
   </button>
 
   <div class="navbar-content">
-    <h1 class="logo-text ">Tube Tech Scaffolding</h1>
+   <!-- <img width="150" src="../../assets/icons/superdaze with icon logo.svg"/>  -->
+   <svg-icon src="../../assets/icons/superdaze with icon logo.svg" [svgStyle]="{ 'width.px':150 }"></svg-icon>
    
- 
     <p-menu #menu [model]="userMenu"  [popup]="true"></p-menu>
     <i class="pi pi-user user-style" style="font-size: 2rem" (click)="menu.toggle($event)"></i>
 
@@ -25,13 +25,9 @@
           <div class="all-items-list">
               <ng-container *ngFor="let item of navItems">
                 <div class="entry" [routerLink]="item.routerLink">
-                  <ng-container *ngIf="item.name === 'Quotations'; else elseBlock">
-                      <i class="fab fa-discourse"></i>
-                  </ng-container>
-                  <ng-template #elseBlock>
-                      <fa-icon size="sm" [icon]="item.icon"></fa-icon>
-                  </ng-template>
-                  <span *ngIf="!isMenuCollapsed">{{ item.name }}</span>
+                  
+                      <svg-icon [src]="item.icon" [svgStyle]="{ 'width.px':41 }"></svg-icon>
+                      <span *ngIf="!isMenuCollapsed">{{ item.name }}</span>
               </div>
               </ng-container>
             </div>

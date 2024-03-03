@@ -11,11 +11,15 @@ import { SidenavModule } from './sidenav/sidenav.module';
 import { AddNewJobModule } from './shared/add-new-job/add-new-job.module';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { SummaryModule } from './summary/summary.module';
+import { SummaryService } from './summary/summary.service';
  
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -28,8 +32,10 @@ import { ToastrModule } from 'ngx-toastr';
     SidenavModule,
     AddNewJobModule ,
     ToastrModule.forRoot(), // ToastrModule added
+    HttpClientModule, AngularSvgIconModule.forRoot(),
+    SummaryModule
   ],
-  providers: [DialogService],
+  providers: [DialogService,SummaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

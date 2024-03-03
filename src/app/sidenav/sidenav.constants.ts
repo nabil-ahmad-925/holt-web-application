@@ -1,7 +1,6 @@
 // sidenav.constants.ts
 
 import { faBriefcase, faArchive, faDashboard } from '@fortawesome/free-solid-svg-icons';
-
  
 export interface NavItem {
   id: string;
@@ -15,8 +14,8 @@ export interface NavItem {
   const ArchiveJobsIcon = faArchive;
 
 export const NavItems: NavItem[] = [
-  { id: '1', routerLink: '/dashboard', icon: DashboardIcon, name: 'Dashboard' },
-  { id: '2', routerLink: '/active-jobs', icon: ActiveJobsIcon, name: 'Active Jobs' },
-  { id: '3', routerLink: '/quotations', icon: ActiveJobsIcon, name: 'Quotations' },
-  { id: '4', routerLink: '/archive-jobs', icon: ArchiveJobsIcon, name: 'Archive Jobs' },
+  { id: '1', routerLink: '/dashboard', icon: '../../assets/icons/dashboard.svg', name: 'Dashboard' },
+  { id: '2', routerLink: '/summary', icon: '../../assets/icons/summary.svg', name: 'Summaries' },
+  { id: '3', routerLink: '/quotations', icon: '../../assets/icons/user-settings.svg', name: 'Settings' },
+ 
 ];

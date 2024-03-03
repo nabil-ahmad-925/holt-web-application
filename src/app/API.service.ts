@@ -59,6 +59,15 @@ export class ApiService {
     return this.sendRequest({ method: 'put', url, data: unArchiveJobData });
   }
 
+    // Function to archiive a job using a Promise
+    public getAllSummaries( ): Promise<any> {
+      const url = `${this.baseUrl}/summaries`;
+      return this.sendRequest({ method: 'get', url});
+    }
+
+
+
+
   
 
   private sendRequest(config: AxiosRequestConfig): Promise<AxiosResponse<any>> {

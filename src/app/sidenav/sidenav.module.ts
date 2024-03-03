@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { MenuModule } from 'primeng/menu';
+ 
+import { SvgIconService } from '../shared/svg-icon/svg-icon.service';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 
 @NgModule({
@@ -28,8 +31,10 @@ import { MenuModule } from 'primeng/menu';
     MenuModule,
     RouterModule,
     BrowserModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule ,
+    AngularSvgIconModule
   ],
-  exports:[SidenavComponent]
+  exports:[SidenavComponent],
+  providers:[SvgIconService]
 })
 export class SidenavModule { }
