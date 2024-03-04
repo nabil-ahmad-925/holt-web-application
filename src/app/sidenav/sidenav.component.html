@@ -9,8 +9,7 @@
    <svg-icon src="../../assets/icons/superdaze with icon logo.svg" [svgStyle]="{ 'width.px':150 }"></svg-icon>
    
     <p-menu #menu [model]="userMenu"  [popup]="true"></p-menu>
-    <i class="pi pi-user user-style" style="font-size: 2rem" (click)="menu.toggle($event)"></i>
-
+    <div (click)="menu.toggle($event)" class="user-circle">H</div>
     <!-- <button pButton type="button"  icon="pi pi-bars" label="Show"></button> -->
   </div>
 
