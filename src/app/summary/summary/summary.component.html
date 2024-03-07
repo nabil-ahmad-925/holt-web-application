@@ -106,7 +106,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer>
-            <tr>
+            <tr (click)="openSummaryModal(customer)">
                 <td>
                     {{ customer.channelname }}
                 </td>

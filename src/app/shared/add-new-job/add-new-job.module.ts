@@ -10,6 +10,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ToastrService } from 'ngx-toastr';
+import { TabViewModule } from 'primeng/tabview';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RadioButtonModule,
     DropdownModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabViewModule,
+    AngularSvgIconModule
   ],
  
 })

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Table } from 'primeng/table';
 import { from } from 'rxjs';
 import { ApiService } from 'src/app/API.service';
+import { AddNewJobComponent } from 'src/app/shared/add-new-job/add-new-job.component';
 
 @Component({
   selector: 'app-summary',
@@ -29,7 +32,7 @@ export class SummaryComponent {
 }];
 
 searchText;
-
+ref: DynamicDialogRef | undefined;
   representatives;
 
   statuses!: any[];
@@ -38,7 +41,7 @@ searchText;
 
   activityValues: number[] = [0, 100];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,private modalService: DialogService, private toastr:ToastrService) {}
 
   async ngOnInit() {
 
@@ -118,6 +121,17 @@ onSearch() {
   //   item.status.toLowerCase().includes(keyword) 
   // );
 
+}
+
+openSummaryModal(data){
+  console.log("Modal summary",data);
+  this.ref = this.modalService.open(AddNewJobComponent,  {
+    header: 'Add New Job',
+    width: '70vw',
+    height:'75vh',
+    modal:true,
+    data:data
+})
 }
 
 }
