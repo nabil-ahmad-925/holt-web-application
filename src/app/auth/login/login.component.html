@@ -1,6 +1,6 @@
 <div class="container card flex justify-content-center">
     <div>
-        <img   src="../../../assets/icons/logo-dark.svg" width="100" height="100" />
+        <img   src="../../../assets/icons/logo-128.png" width="100" height="100" />
     </div>
     <p-card class="card" >
         <div class="header">
@@ -32,7 +32,16 @@
                 </div>
 
                 <button pButton pRipple label="Sign In" class="sign-in-btn" [routerLink]="['/']" (click)="login()"></button>
-  
+                
+                <div class="create-account">
+                    <span class="seprator"></span>
+                    <span class="OR">OR</span> 
+                    <span class="seprator"></span>
+                </div>
+
+                <button   pButton pRipple label="Create Account" class="create-btn" [routerLink]="['/signup']" ></button>
+                
+               
             </div>
         
 
