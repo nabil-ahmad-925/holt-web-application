@@ -19,6 +19,15 @@ export class ApiService {
     return this.sendRequest({ method: 'post', url, data });
   }
 
+    // Function to perform a login using a Promise
+    public async signup(email: string, password: string): Promise<any> {
+ 
+        const url = `${this.baseUrl}/signup`;
+        const data = { email, password };
+         return  this.sendRequest({ method: 'post', url, data });
+       
+    
+    }
 
   // Function to read jobs using a Promise
     public readJobs(): Promise<any> {

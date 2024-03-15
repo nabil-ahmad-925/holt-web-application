@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
   public loggedInSubject = new Subject<boolean>();
+  public isSignUpClicked = new Subject<boolean>();
   constructor(private router: Router) { }
 
   async login(payload):Promise<any> {

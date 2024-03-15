@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PanelModule } from 'primeng/panel';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -22,6 +22,7 @@ import { QuotationsComponent } from './quotations/quotations.component';
 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MessageService } from 'primeng/api';
     CheckboxModule,
     DropdownModule,
     ToastModule,
-
+    PanelModule,
+    AngularSvgIconModule,
     // Angular modules for root-level features (consider removing)
     BrowserModule,
     BrowserAnimationsModule,

@@ -12,24 +12,7 @@ import { AddNewJobComponent } from 'src/app/shared/add-new-job/add-new-job.compo
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent {
-  summaries = [{
-    id: 1000,
-    name: 'James Butt',
-    country: {
-        name: 'Algeria',
-        code: 'dz'
-    },
-    company: 'Benton, John B Jr',
-    date: '2015-09-13',
-    status: 'unqualified',
-    verified: true,
-    activity: 17,
-    representative: {
-        name: 'Ioni Bowcher',
-        image: 'ionibowcher.png'
-    },
-    balance: 70663
-}];
+  summaries = [];
 
 searchText;
 ref: DynamicDialogRef | undefined;
@@ -85,7 +68,7 @@ ref: DynamicDialogRef | undefined;
   }
 
   clear(table: Table) {
-      table.clear();
+      table.reset();
   }
 
   filter(){}
@@ -116,12 +99,31 @@ ref: DynamicDialogRef | undefined;
 onSearch() {
  
   const keyword = this.searchText.toLowerCase();
-  // this.filteredSummaries = this.summaries.filter(item => 
-  //   item.name.toLowerCase().includes(keyword) || 
-  //   item.status.toLowerCase().includes(keyword) 
-  // );
+
+  this.filteredSummaries = this.summaries.filter(item => 
+    item.channelname.toLowerCase().includes(keyword) || 
+    item.title.toLowerCase().includes(keyword) || 
+    item.video_url.toLowerCase().includes(keyword) || 
+    this.isDateMatch(item.publishedtime, keyword) || 
+    item.videolengthseconds.toString().includes(keyword) || 
+    item.viewcount.toString().includes(keyword) ||
+    item.videoid.toLowerCase().includes(keyword) 
+  );
 
 }
+
+  isDateMatch(publishedTime, keyword) {
+    console.log("Keyword==>",keyword,publishedTime);
+    // Convert publishedTime string to a Date object
+    const publishedDate = new Date(publishedTime);
+    
+    // Parse the keyword date in MM/DD/YYYY format
+    const [month, day, year] = keyword.split('/');
+    const keywordDate = new Date(`${year}-${month}-${day}`);
+    
+    // Compare the dates
+    return publishedDate.toDateString().includes(keywordDate.toDateString());
+  }
 
 openSummaryModal(data){
   console.log("Modal summary",data);

@@ -59,3 +59,26 @@
     z-index: 4;
 }
 
+.token-panel{
+::ng-deep .p-component{
+    padding: 100px;
+}
+}
+
+
+.token-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #00684A;
+    font-size: larger;
+    .copy-icon{
+        cursor: pointer;
+    }
+     
+}
+
+::ng-deep p-header{
+    width: 100%;
+}
+

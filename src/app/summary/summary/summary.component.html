@@ -10,7 +10,7 @@
         [loading]="loading"
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        [globalFilterFields]="['channelname', 'title','video_url','publishedtime','videolengthseconds','viewcount','videoid' ]"
         
         >
     
@@ -31,74 +31,48 @@
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         Channel Name
-                        <p-columnFilter style="color: aqua;" type="text" field="name" display="menu"></p-columnFilter>
+                        <p-columnFilter style="color: aqua;" type="text" field="channelname" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:15rem">
                     <div class="flex align-items-center ">
                         Title
-                        <p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
+                        <p-columnFilter type="text" field="title" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:15rem">
                     <div class="flex align-items-center">
                         Chanel Link
-                        <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
-                            <ng-template pTemplate="header">
-                                <div class="px-3 pt-3 pb-0">
-                                    <span class="font-bold">Agent Picker</span>
-                                </div>
-                            </ng-template>
-                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                                <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
-                                    <ng-template let-option pTemplate="item">
-                                        <div class="inline-block vertical-align-middle">
-                                            <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" width="24" class="vertical-align-middle" />
-                                            <span class="ml-1 mt-1">{{ option.name }}</span>
-                                        </div>
-                                    </ng-template>
-                                </p-multiSelect>
-                            </ng-template>
+                        <p-columnFilter  type="text" field="video_url" display="menu" [showOperator]="false" >
+               
                         </p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Publish Time
-                        <p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+                        <p-columnFilter type="date" field="publishedtime" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Video Length
-                        <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+                        <p-columnFilter type="numeric" field="videolengthseconds" display="menu"  ></p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Views
-                        <p-columnFilter field="status" matchMode="equals" display="menu">
-                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                                <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
-                                    <ng-template let-option pTemplate="item">
-                                        <p-tag [value]="option.value" [severity]="getSeverity(option.label)"></p-tag>
-                                    </ng-template>
-                                </p-dropdown>
-                            </ng-template>
+                        <p-columnFilter type="numeric" field="viewcount" matchMode="equals" display="menu">
+                           
                         </p-columnFilter>
                     </div>
                 </th>
                 <th style="min-width:10rem">
                     <div class="flex align-items-center">
                         Video Id
-                        <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
-                            <ng-template pTemplate="filter" let-filter="filterCallback">
-                                <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="m-3"></p-slider>
-                                <div class="flex align-items-center px-2">
-                                    <span>{{ activityValues[0] }}</span>
-                                    <span>{{ activityValues[1] }}</span>
-                                </div>
-                            </ng-template>
+                        <p-columnFilter field="videoid" type="text" matchMode="between" display="menu"  >
+                          
                         </p-columnFilter>
                     </div>
                 </th>

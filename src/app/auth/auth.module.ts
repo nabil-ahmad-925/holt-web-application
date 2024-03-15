@@ -26,6 +26,6 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule
   ]
   ,
-  exports: [LoginComponent],
+  exports: [LoginComponent,SignUpComponent],
 })
 export class AuthModule { }

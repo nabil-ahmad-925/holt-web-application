@@ -27,7 +27,7 @@ filteredQuotationJobs  ;
 selectedJob:Job;
 ref: DynamicDialogRef | undefined;
 quotationJobs : Job[] = [];
- 
+extensionToken;
 
    
 QuotationStatus = [ 
@@ -47,6 +47,8 @@ ngOnInit() {
     this.quotationJobs = response?.data.allJobs.filter((job)=>!job.isArchived && !job.isActive);
     this.filteredQuotationJobs = [...this.quotationJobs];  
    }) ;
+
+   this.extensionToken = localStorage.getItem("token");
 }
 
 // get status colors 
@@ -226,5 +228,14 @@ this.ref.onClose.subscribe(async(job:any) => {
    this.checked = false;
 });
 }
-
+ 
+copyExtensionToken() {
+  const textArea = document.createElement('textarea');
+  textArea.value = this.extensionToken;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textArea);
+ this.toastr.success("Token Copied Successfully")
+}
 }
