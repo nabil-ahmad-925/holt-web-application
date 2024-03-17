@@ -128,7 +128,7 @@ onSearch() {
 openSummaryModal(data){
   console.log("Modal summary",data);
   this.ref = this.modalService.open(AddNewJobComponent,  {
-    header: 'Add New Job',
+    header: 'Summary & Transcript',
     width: '70vw',
     height:'75vh',
     modal:true,
