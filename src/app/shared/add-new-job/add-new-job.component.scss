@@ -154,5 +154,19 @@
 
     }
 
+    .start-time{
+        color: #00684A;
+        font-size: x-large;
+    }
+
+   ::ng-deep .p-dialog .p-dialog-header {
+        border-bottom: 0 none;
+        background: #1a6a4f;
+        
+        padding: 1.5rem;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+        color: white;
+    }
  
 }

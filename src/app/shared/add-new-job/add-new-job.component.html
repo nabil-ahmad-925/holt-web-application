@@ -32,7 +32,7 @@
         </div>
       </div> -->
       <div *ngFor="let object of markedTranscript">
-        <span class="start-time">{{ object.startTime }}</span>
+        <span class="start-time"> Start Time {{ object.startTime.split('.')[0] }} sec</span>
         <span [innerHTML]="object.text"></span> <br> 
       </div>
       

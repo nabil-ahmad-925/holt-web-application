@@ -75,9 +75,12 @@ export class ApiService {
     }
 
 
+    public refreshToken(): Promise<any> {
+      const url = `${this.baseUrl}/refresh-token`;
+      const refreshToken = localStorage.getItem('refresh-token');
+      return this.sendRequest({ method: 'post', url, data: refreshToken });
+    }
 
-
-  
 
   private sendRequest(config: AxiosRequestConfig): Promise<AxiosResponse<any>> {
     return axios(config);

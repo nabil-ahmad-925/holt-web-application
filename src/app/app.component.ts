@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.authService.startTokenRefreshPolling();
+    
     this.authService.getLoggedInObservable().subscribe((isLoggedIn) => {
       this.isAuthenticated  = isLoggedIn;
     });

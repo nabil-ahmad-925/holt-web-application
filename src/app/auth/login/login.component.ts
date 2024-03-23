@@ -22,11 +22,15 @@ export class LoginComponent {
 
     try{
       const response = await this.apiService.login(this.email,this.password);
-    
-      if(response.data.status === 201){
+      console.log("res=====>Login",response);
+
+      if(response.data.status === 200){
         this.toastr.success("Logged In Sucessfully");
       }
-      localStorage.setItem("token",response.data.token);
+
+      localStorage.setItem("token",response.data.accessToken);
+      localStorage.setItem("refresh-token",response.data.refreshToken);
+      
       this.authService.loggedInSubject.next(true); // Notify observers about the login
    
       if(response.data.token){
