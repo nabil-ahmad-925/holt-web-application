@@ -15,9 +15,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { SummaryPublicViewComponent } from './summary-public-view/summary-public-view.component';
+ 
 @NgModule({
   declarations: [
-    SummaryComponent
+    SummaryComponent,
+    SummaryPublicViewComponent,
+ 
   ],
   imports: [
     CommonModule,

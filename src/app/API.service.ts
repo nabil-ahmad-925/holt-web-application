@@ -78,7 +78,9 @@ export class ApiService {
     public refreshToken(): Promise<any> {
       const url = `${this.baseUrl}/refresh-token`;
       const refreshToken = localStorage.getItem('refresh-token');
-      return this.sendRequest({ method: 'post', url, data: refreshToken });
+      console.log("sending refresh token to BE.........")
+
+      return this.sendRequest({ method: 'post', url, data: { refreshToken } });
     }
 
 

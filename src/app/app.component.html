@@ -1,9 +1,9 @@
-<ng-container *ngIf="isAuthenticated ; else loginPage" >
+<ng-container *ngIf="isAuthenticated ; else publicPages" >
     <app-sidenav></app-sidenav>
 </ng-container>
 
 
-<ng-template #loginPage>
+<ng-template #publicPages>
        <app-login *ngIf="!isAuthenticated && !isSignedUp"></app-login>
        <app-sign-up *ngIf="isSignedUp"></app-sign-up>
 </ng-template>

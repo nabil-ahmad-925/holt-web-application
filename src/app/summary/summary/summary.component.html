@@ -80,32 +80,38 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer>
-            <tr (click)="openSummaryModal(customer)">
-                <td>
+            <tr class="pointer-class">
+
+                <td (click)="openSummaryModal(customer)">
                     {{ customer.channelname }}
                 </td>
-                <td class="text-elipses">
-                   
+
+                <td class="text-elipses" (click)="openSummaryModal(customer)"> 
                     <span class="ml-1 vertical-align-middle">{{ customer.title }}</span>
                 </td>
-                <td>
-               
+
+                <td (click)="openSummaryModal(customer)"> 
                     <span class="ml-1 vertical-align-middle">{{ customer.video_url }}</span>
                 </td>
-                <td>
+                
+                <td (click)="openSummaryModal(customer)">
                     {{ customer.publishedtime | date: 'MM/dd/yyyy' }}
                 </td>
-                <td>
+                
+                <td (click)="openSummaryModal(customer)">
                     {{ customer.videolengthseconds  }}
                 </td>
-                <td>
+                
+                <td (click)="openSummaryModal(customer)">
                     <p-tag [value]="customer.viewcount"  ></p-tag>
                 </td>
-                <td>
+
+                <td (click)="redirectToSummaryPublicView(customer.videoid)">
                     {{ customer.videoid  }}
                 </td>
  
             </tr>
+
         </ng-template>
         <ng-template pTemplate="emptymessage">
             <tr>
