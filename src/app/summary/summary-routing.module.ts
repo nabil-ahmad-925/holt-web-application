@@ -7,7 +7,7 @@ import { SummaryPublicViewComponent } from './summary-public-view/summary-public
 
 const routes:  Routes = [
   { path: 'summary', component: SummaryComponent ,canActivate:[DashBoardAuthGuard]},
-  { path: 'publicview/:videoId', component: SummaryPublicViewComponent, canActivate: [DashBoardAuthGuard] } // Define route parameter
+  { path: 'public-view/:videoId', component: SummaryPublicViewComponent  } // Define route parameter
 ];
 
 @NgModule({

@@ -1,1 +1,50 @@
-<p>summary-public-view works!</p>
+ 
+<nav class="navbar">
+    <div class="container">
+
+        <div class="left-nav">
+            <div class="navbar-brand">
+                <svg-icon src="../../assets/icons/superdaze with icon logo.svg" [svgStyle]="{ 'width.px':250 }"></svg-icon>
+            
+                </div>
+            
+                <div class="browse-summaries flex justify-content-center">
+                    <p-dropdown placeholder="Browse Summaries" [options]="summariesList" [(ngModel)]="selectedCity" (ngModelChange)="changeSummary($event)" optionLabel="name"></p-dropdown>
+                </div>
+        </div>
+   
+
+      <div class="navbar-links">
+        <div class="install-extension">
+            <span>Install Extension</span>
+            <svg-icon src="../../assets/icons/arrow-next.svg" [svgStyle]="{ 'width.px':46 }"></svg-icon>
+        </div>
+      </div>
+      <div class="navbar-toggle">
+        <button class="toggle-btn" (click)="toggleNavbar()">
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+ 
+  
+<div class="youtube-player">
+
+    <div class="title">
+        {{currentTitle}}
+    </div>
+
+    <youtube-player 
+    [videoId]="currentVideoId" 
+    suggestedQuality="highres" 
+    [height]="800" 
+    [width]="1500" 
+    
+   >
+  </youtube-player>
+</div>

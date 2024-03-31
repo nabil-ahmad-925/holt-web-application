@@ -3,6 +3,7 @@ import { AuthService } from './auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Location } from '@angular/common';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,12 +13,14 @@ export class AppComponent implements OnInit {
   title = 'current-directory';
   isAuthenticated :boolean = false;
   isSignedUp:boolean = false;
-  constructor(private authService:AuthService, private router:Router,private location: Location) {}
+  isPublicSummaryView:boolean = false;
+  constructor(private authService:AuthService, private router:Router,private route:ActivatedRoute,public location:Location) {}
  
  
 
   ngOnInit(): void {
-
+ 
+  
     this.authService.startTokenRefreshPolling();
     
     this.authService.getLoggedInObservable().subscribe((isLoggedIn) => {
@@ -33,6 +36,12 @@ export class AppComponent implements OnInit {
     this.isAuthenticated =  this.authService.isLoggedIn();
  
    if(!this.isAuthenticated ){
+    this.isPublicSummaryView = this.location.path().includes('public-view');
+       if(this.isPublicSummaryView){
+        return
+       }
+   
+
        this.router.navigate(['/login']);
    } 
  

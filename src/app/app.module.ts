@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SummaryModule } from './summary/summary.module';
 import { SummaryService } from './summary/summary.service';
+import { YouTubePlayerModule } from '@angular/youtube-player';
  
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SummaryService } from './summary/summary.service';
     AddNewJobModule ,
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule, AngularSvgIconModule.forRoot(),
-    SummaryModule
+    SummaryModule,
+    YouTubePlayerModule
   ],
   providers: [DialogService,SummaryService],
   bootstrap: [AppComponent]

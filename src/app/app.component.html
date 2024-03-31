@@ -4,6 +4,7 @@
 
 
 <ng-template #publicPages>
-       <app-login *ngIf="!isAuthenticated && !isSignedUp"></app-login>
+       <app-login *ngIf="!isAuthenticated && !isSignedUp && !isPublicSummaryView"></app-login>
        <app-sign-up *ngIf="isSignedUp"></app-sign-up>
+       <app-summary-public-view></app-summary-public-view>
 </ng-template>

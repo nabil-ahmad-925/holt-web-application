@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { SummaryPublicViewComponent } from './summary-public-view/summary-public-view.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { AvatarModule } from 'primeng/avatar';
+import { AngularSvgIconModule } from 'angular-svg-icon';
  
 @NgModule({
   declarations: [
@@ -37,8 +40,12 @@ import { SummaryPublicViewComponent } from './summary-public-view/summary-public
     BrowserModule,
     BrowserAnimationsModule,
     ProgressBarModule,
-   
-    ButtonModule
-  ]
+    ButtonModule,
+    YouTubePlayerModule,
+    AngularSvgIconModule,
+    AvatarModule
+  ],
+  exports:[SummaryPublicViewComponent]
+
 })
 export class SummaryModule { }
